@@ -1,6 +1,8 @@
-import sqlite3 as lite 
+#import sqlite3 as lite 
 
-conexao = lite.connect('dados.db')
+import mysql.connector as sqlConnector
+
+conexao = sqlConnector.connect('dados.db')
  
  
 
