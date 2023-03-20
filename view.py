@@ -2,7 +2,7 @@
 
 import mysql.connector as sqlConnector
 
-conexao = sqlConnect.connect(host="localhost",
+conexao = sqlConnector.connect(host="localhost",
     user="root",
     passwd="rafinha292002",
     db="cadastro")
