@@ -19,7 +19,7 @@ def inserir_form(i):
 def atualizar_form(i):
     with conexao:
         cur = conexao.cursor()
-        query = "UPDATE produtos SET nome=%s, barra==%s, descricao==%s, valor==%s,marca==%s,data_da_compra==%s,estoque==%s,imagem==%s WHERE id==%s"
+        query = "UPDATE produtos SET nome=%s, barra==%s, descricao==%s, valor==%s,marca==%s,data_da_compra==%s,estoque==%s,imagem==%s WHERE id_produto==%s"
         cur.execute(query, i)
 
 
@@ -27,7 +27,7 @@ def atualizar_form(i):
 def deletar_form(i):
     with conexao: 
         cur = conexao.cursor()
-        query = "DELETE FROM produtos WHERE id==%s"
+        query = "DELETE FROM produtos WHERE id_produto==%s"
         cur.execute(query, i)
 
 
@@ -57,7 +57,7 @@ def ver_dados_individual_form(id):
     ver_dados_individual=[]
     with conexao:
         cur = conexao.cursor()
-        query = "SELECT * FROM PRODUTOS WHERE id=%s"
+        query = "SELECT * FROM PRODUTOS WHERE id_produtos=%s"
         cur.execute(query,id)
         
         rows = cur.fetchall()

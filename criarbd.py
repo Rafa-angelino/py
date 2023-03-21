@@ -18,12 +18,18 @@ connection = sqlConnect.connect(host="localhost",
     db="cadastro")
  
 with connection:
-    if connection.is_connected():
-        cursor = connection.cursor()
-        cursor.execute("select database();")
-        db = cursor.fetchone()
-        print("Você está conectado ao banco de dados: ", db)
-    else:
-     print("Erro ao conectar ao MySQL",)
+    try:
+        if connection.is_connected():
+            cursor = connection.cursor()
+            cursor.execute("select database();")
+            db = cursor.fetchone()
+            print("Você está conectado ao banco de dados: ", db)
+    except Error as e:
+        print("Erro ao conectar ao MySQL", e)
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
+            print("A conexão MySQL está fechada")
 
 
